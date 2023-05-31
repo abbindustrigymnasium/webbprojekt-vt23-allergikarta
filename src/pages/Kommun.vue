@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import kommuner from '../assets/communes.json'
+onMounted 
 </script>
 
 <template>
-  <p>hej</p>
+  <h1></h1>
 </template>
