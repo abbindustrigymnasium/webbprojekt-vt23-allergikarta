@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <script type="module" src="/src/main.ts"></script>
   <form>
     <div>
       <label>skriv namn på restaurangen</label>
@@ -18,6 +19,17 @@
     <div>
       <label>skriv namn på länet restaurangen befinner sig i</label>
       <input type="text"></input>
+    </div>
+    <div>
+      <label>har restaurangen glutenfritt? (y/n)</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <label>har restaurangen laktosfritt? (y/n)</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <input type="submit" value="skicka restaurang" id="add_restaurant"></input>
     </div>
   </form>
   <svg baseprofile="tiny" height="2264" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,8 +121,27 @@
       id="SWE3429" name="Skåne">
     </path>
   </svg>
-  <script type="module" src="/src/main.ts"></script>
-
+  <form>
+    <div>
+      <label>skriv namn på restaurangen</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <label>skriv namn på länet restaurangen befinner sig i</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <label>har restaurangen glutenfritt? (y/n)</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <label>har restaurangen laktosfritt? (y/n)</label>
+      <input type="text"></input>
+    </div>
+    <div>
+      <input type="submit" value="sök restaurang" id="get_restaurants"></input>
+    </div>
+  </form>
 </body>
 
 </html>

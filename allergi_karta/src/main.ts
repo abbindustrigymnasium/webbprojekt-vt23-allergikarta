@@ -12,3 +12,7 @@ document.querySelectorAll('path').forEach(svg_path => {
 
   })
 })
+
+document.getElementById('add_restaurant')?.addEventListener('click', () => {
+  console.log('workn')
+})
