@@ -1,0 +1,15 @@
+svg{
+  width: 90%;
+  height: 90%;
+  position: absolute;
+}
+
+path {
+  cursor: pointer;
+  fill: green;
+}
+.selected {
+  fill:darkred;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}
