@@ -31,29 +31,28 @@ add_restaurant_form.onsubmit = () => {
 
   //  posting data
   let form_data = {
-    title: document.querySelectorAll('.restaurant_name')[0].value,
-    municipality: document.querySelectorAll('.municipality')[0].value,
-    gluten_free: document.querySelectorAll('.free_from_gluten')[0].value,
-    lactose_free: document.querySelectorAll('.free_from_lactose')[0].value,
+    title: document.querySelector('.restaurant_name')!.value.toLowerCase(),
+    municipality: document.querySelectorAll('.municipality')[0].value.toLowerCase(),
+    gluten_free: document.querySelectorAll('.free_from_gluten')[0].value.toLowerCase(),
+    lactose_free: document.querySelectorAll('.free_from_lactose')[0].value.toLowerCase(),
     rating: document.querySelector('.rating')!.value
   };
   console.log(form_data)
 
   axios.post('http://127.0.0.1:8081/add_restaurant', form_data);
 
-
+  return false;
 };
 
 search_restaurant_form.onsubmit = () => {
   //  retrieving data
   let form_data = {
-    title: document.querySelectorAll('.restaurant_name')[1].value,
-    municipality: document.querySelectorAll('.municipality')[1].value,
-    gluten_free: document.querySelectorAll('.free_from_gluten')[1].value,
-    lactose_free: document.querySelectorAll('.free_from_lactose')[1].value,
+    municipality: document.querySelectorAll('.municipality')[1].value.toLowerCase(),
+    gluten_free: document.querySelectorAll('.free_from_gluten')[1].value.toLowerCase(),
+    lactose_free: document.querySelectorAll('.free_from_lactose')[1].value.toLowerCase(),
   };
 
-  console.log(axios.get(`http://127.0.0.1:8081/${form_data.title}/${form_data.municipality}/${form_data.gluten_free}/${form_data.lactose_free}`));
+  console.log(axios.get(`http://127.0.0.1:8081/${form_data.municipality}/${form_data.gluten_free}/${form_data.lactose_free}`));
 
   return false; // prevent reload
 };
