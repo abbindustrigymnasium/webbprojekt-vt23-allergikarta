@@ -32,7 +32,7 @@ add_restaurant_form.onsubmit = () => {
   //  posting data
   let form_data = {
     title: document.querySelectorAll('.restaurant_name')[0].value,
-    municipality: document.querySelector('.municipality')!.value,
+    municipality: document.querySelectorAll('.municipality')[0].value,
     gluten_free: document.querySelectorAll('.free_from_gluten')[0].value,
     lactose_free: document.querySelectorAll('.free_from_lactose')[0].value,
     rating: document.querySelector('.rating')!.value
@@ -48,7 +48,7 @@ search_restaurant_form.onsubmit = () => {
   //  retrieving data
   let form_data = {
     title: document.querySelectorAll('.restaurant_name')[1].value,
-    municipality: document.querySelector('.municipality')!.value,
+    municipality: document.querySelectorAll('.municipality')[1].value,
     gluten_free: document.querySelectorAll('.free_from_gluten')[1].value,
     lactose_free: document.querySelectorAll('.free_from_lactose')[1].value,
   };
