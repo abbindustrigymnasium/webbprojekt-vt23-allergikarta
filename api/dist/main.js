@@ -28,10 +28,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const fs = __importStar(require("fs"));
+const cors_1 = __importDefault(require("cors"));
 var app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
 app.get('/:municipality/:restaurant_name/:gluten_free/:lactose_free', function (req, res) {
     // First read existing users.
-    fs.readFile("./data.json", 'utf8', function (err, data) {
+    fs.readFile('./data.json', 'utf8', function (err, data) {
         var retrived_data = JSON.parse(data);
         console.log(retrived_data);
         res.end(JSON.stringify(retrived_data));
@@ -40,11 +43,14 @@ app.get('/:municipality/:restaurant_name/:gluten_free/:lactose_free', function (
 app.post('/add_restaurant', function (req, res) {
     fs.readFile('./data.json', 'utf8', function (err, data) {
         var json = JSON.parse(data);
-        json.push('restaurant: {title:' + req.body.name + ', municipality:' + req.body.municipality + ', gluten_free:' + req.body.gluten_free + ', lactose_free:' + req.body.lactose_free + '}');
-        fs.writeFile("./data.json", JSON.stringify(json), (err) => console.log(err));
+        console.log(json);
+        let data_to_push = { restaurant: { title: req.body.title, municipality: req.body.municipality, gluten_free: req.body.gluten_free, lactose_free: req.body.lactose_free } };
+        json.push(data_to_push);
+        fs.writeFile('./data.json', JSON.stringify(json), (err) => console.log(err));
+        res.end(JSON.stringify(json));
     });
 });
-var server = app.listen(8081, "127.0.0.1", function () {
+var server = app.listen(8081, '127.0.0.1', function () {
     var addressinfo = server.address();
-    console.log("Example app listening at http://%s:%s", addressinfo.address, addressinfo.port);
+    console.log('Example app listening at http://%s:%s', addressinfo.address, addressinfo.port);
 });
